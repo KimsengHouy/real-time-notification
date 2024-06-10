@@ -18,7 +18,11 @@ app.use(bodyParser.json());
 app.post('/real-time-notification', (req, res) => {
 console.log(`Okay im sent`);
 const requestData = req.body; 
-    console.log(`Received request data: ${JSON.stringify(requestData)}`);	
+    console.log(`Received request data: ${JSON.stringify(requestData)}`);
+	let data = req.body.data;
+	var b64string = data;
+	var buf = Buffer.from(b64string, 'base64');
+	console.log(`Received request data: ${buf}`);
 	res.send('OK');
 });
 
