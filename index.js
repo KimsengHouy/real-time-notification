@@ -1,5 +1,7 @@
 const express = require('express');
 
+const bodyParser = require('body-parser');
+
 const app = express();
 const PORT = 3000;
 
@@ -11,8 +13,12 @@ app.get('/users-list', (req, res) => {
   res.send(usersList);
 });
 
+app.use(bodyParser.json());
+
 app.post('/real-time-notification', (req, res) => {
 console.log(`Okay im sent`);
+const requestData = req.body; 
+    console.log(`Received request data: ${JSON.stringify(requestData)}`);	
 	res.send('OK');
 });
 
