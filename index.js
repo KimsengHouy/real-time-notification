@@ -12,6 +12,7 @@ app.get('/users-list', (req, res) => {
 });
 
 app.post('/real-time-notification', (req, res) => {
+console.log(`Okay im sent`);
 	res.send('OK');
 });
 
